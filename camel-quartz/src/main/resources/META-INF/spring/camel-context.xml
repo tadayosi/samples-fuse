@@ -6,18 +6,13 @@
 
   <camelContext xmlns="http://camel.apache.org/schema/spring">
     <route>
-      <from uri="file:target/in" />
-      <choice>
-        <when>
-          <xpath>/person/city = 'London'</xpath>
-          <log message="UK message" />
-          <to uri="file:target/out/uk" />
-        </when>
-        <otherwise>
-          <log message="Other message" />
-          <to uri="file:target/out/others" />
-        </otherwise>
-      </choice>
+      <from uri="quartz://timer?trigger.repeatInterval=1000&amp;trigger.repeatCount=-1" />
+      <!-- <from uri="quartz://timer?cron=*/5+*+*+*+*+?" /> -->
+      <setBody>
+        <simple>Hello!</simple>
+      </setBody>
+      <log message="${body}" />
+      <to uri="mock:out" />
     </route>
   </camelContext>
 

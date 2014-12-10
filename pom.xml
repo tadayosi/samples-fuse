@@ -12,6 +12,7 @@
 
   <modules>
     <module>camel-basic</module>
+    <module>camel-quartz</module>
   </modules>
 
   <properties>
@@ -80,6 +81,13 @@
     <dependency>
       <groupId>org.apache.camel</groupId>
       <artifactId>camel-spring</artifactId>
+      <version>${version.camel}</version>
+    </dependency>
+
+    <!-- Camel components -->
+    <dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-quartz</artifactId>
       <version>${version.camel}</version>
     </dependency>
 

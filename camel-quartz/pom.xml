@@ -9,7 +9,7 @@
     <version>1.0</version>
   </parent>
 
-  <artifactId>samples-fuse-camel-basic</artifactId>
+  <artifactId>samples-fuse-camel-quartz</artifactId>
   <packaging>jar</packaging>
 
 </project>
