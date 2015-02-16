@@ -13,12 +13,14 @@
   <modules>
     <module>camel-basic</module>
     <module>camel-quartz</module>
+    <module>camel-war</module>
   </modules>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <version.camel>2.12.0.redhat-610379</version.camel>
+    <version.spring>3.2.8.RELEASE</version.spring>
   </properties>
 
   <build>
@@ -69,10 +71,17 @@
         <artifactId>camel-maven-plugin</artifactId>
         <version>2.12.0.redhat-610379</version>
       </plugin>
+      <!-- deploy on EAP -->
+      <plugin>
+        <groupId>org.jboss.as.plugins</groupId>
+        <artifactId>jboss-as-maven-plugin</artifactId>
+        <version>7.5.Final</version>
+      </plugin>
     </plugins>
   </build>
 
   <dependencies>
+    <!-- Camel -->
     <dependency>
       <groupId>org.apache.camel</groupId>
       <artifactId>camel-core</artifactId>
@@ -81,13 +90,6 @@
     <dependency>
       <groupId>org.apache.camel</groupId>
       <artifactId>camel-spring</artifactId>
-      <version>${version.camel}</version>
-    </dependency>
-
-    <!-- Camel components -->
-    <dependency>
-      <groupId>org.apache.camel</groupId>
-      <artifactId>camel-quartz</artifactId>
       <version>${version.camel}</version>
     </dependency>
 
@@ -128,6 +130,29 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+
+  <dependencyManagement>
+    <dependencies>
+      <!-- Camel components -->
+      <dependency>
+        <groupId>org.apache.camel</groupId>
+        <artifactId>camel-quartz</artifactId>
+        <version>${version.camel}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.camel</groupId>
+        <artifactId>camel-servlet</artifactId>
+        <version>${version.camel}</version>
+      </dependency>
+
+      <!-- Spring -->
+      <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-web</artifactId>
+        <version>${version.spring}</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
 
   <repositories>
     <repository>
