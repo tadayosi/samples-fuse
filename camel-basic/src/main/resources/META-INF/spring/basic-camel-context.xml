@@ -6,16 +6,16 @@
 
   <camelContext xmlns="http://camel.apache.org/schema/spring">
     <route>
-      <from uri="file:target/in" />
+      <from uri="file:/tmp/in" />
       <choice>
         <when>
           <xpath>/person/city = 'London'</xpath>
           <log message="UK message" />
-          <to uri="file:target/out/uk" />
+          <to uri="file:/tmp/out/uk" />
         </when>
         <otherwise>
           <log message="Other message" />
-          <to uri="file:target/out/others" />
+          <to uri="file:/tmp/out/others" />
         </otherwise>
       </choice>
     </route>
