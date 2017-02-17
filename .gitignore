@@ -1,6 +1,10 @@
 .*
+*.iml
+
+!.editorconfig
 !.gitignore
 !.travis.yml
+
 bin/
 build/
 target/
