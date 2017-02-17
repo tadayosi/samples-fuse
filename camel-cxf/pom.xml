@@ -9,8 +9,15 @@
     <version>1.0</version>
   </parent>
 
-  <artifactId>samples-fuse-camel-basic</artifactId>
+  <artifactId>samples-fuse-camel-cxf</artifactId>
   <packaging>bundle</packaging>
-  <name>JBoss Fuse Samples: Camel Basic</name>
+  <name>JBoss Fuse Samples: Camel CXF</name>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-cxf</artifactId>
+    </dependency>
+  </dependencies>
 
 </project>

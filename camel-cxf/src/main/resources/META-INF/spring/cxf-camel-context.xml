@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:cxf="http://camel.apache.org/schema/cxf"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd
+       http://camel.apache.org/schema/cxf http://camel.apache.org/schema/cxf/camel-cxf.xsd">
+
+  <bean id="jsonProvider" class="org.apache.cxf.jaxrs.provider.json.JSONProvider" />
+
+  <cxf:rsServer id="rsServer" address="http://localhost:9000/samples/cxfrs"
+    serviceClass="com.redhat.samples.fuse.cxf.GreetingResource"
+    loggingFeatureEnabled="true">
+    <cxf:providers>
+      <ref bean="jsonProvider" />
+    </cxf:providers>
+  </cxf:rsServer>
+
+  <camelContext id="sample-camel-cxf" xmlns="http://camel.apache.org/schema/spring">
+    <route id="cxfrs">
+      <from uri="cxfrs:bean:rsServer" />
+      <log message="body: ${body}" />
+      <transform>
+        <simple>Hello, ${body}!</simple>
+      </transform>
+    </route>
+  </camelContext>
+
+</beans>

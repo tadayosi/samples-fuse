@@ -10,7 +10,7 @@
   </parent>
 
   <artifactId>samples-fuse-camel-quartz</artifactId>
-  <packaging>jar</packaging>
+  <packaging>bundle</packaging>
   <name>JBoss Fuse Samples: Camel Quartz</name>
 
   <dependencies>
