@@ -11,5 +11,6 @@
 
   <artifactId>samples-fuse-camel-basic</artifactId>
   <packaging>jar</packaging>
+  <name>JBoss Fuse Samples: Camel Basic</name>
 
 </project>

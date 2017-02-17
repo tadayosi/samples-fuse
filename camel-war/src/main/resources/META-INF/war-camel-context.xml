@@ -4,7 +4,7 @@
     http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
     http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd">
 
-  <camelContext xmlns="http://camel.apache.org/schema/spring">
+  <camelContext id="sample-camel-war" xmlns="http://camel.apache.org/schema/spring">
     <route>
       <from uri="servlet:///hello" />
       <log message="name: ${header.name}" />

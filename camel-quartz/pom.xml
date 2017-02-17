@@ -11,6 +11,7 @@
 
   <artifactId>samples-fuse-camel-quartz</artifactId>
   <packaging>jar</packaging>
+  <name>JBoss Fuse Samples: Camel Quartz</name>
 
   <dependencies>
     <dependency>

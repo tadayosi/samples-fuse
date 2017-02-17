@@ -4,7 +4,7 @@
     http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
     http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd">
 
-  <camelContext xmlns="http://camel.apache.org/schema/spring">
+  <camelContext id="sample-camel-quartz" xmlns="http://camel.apache.org/schema/spring">
     <route>
       <from uri="quartz://timer?trigger.repeatInterval=1000&amp;trigger.repeatCount=-1" />
       <!-- <from uri="quartz://timer?cron=*/5+*+*+*+*+?" /> -->
